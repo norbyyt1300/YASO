@@ -51,21 +51,21 @@
     <!-- Player strike teams -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col left-gradient">
                 <div id="player1Primary1Name" class="unit-name-div"></div>
                 <img id="player1Primary1Img" class="unit-img" src="">
                 <div id="player1Primary1Tokens" class="tokens-div"></div>
             </div>
             <div class="col">
             </div>
-            <div class="col text-align-right">
+            <div class="col text-align-right right-gradient">
                 <div id="player2Primary1Name" class="unit-name-div"></div>
                 <img id="player2Primary1Img" class="unit-img" src="">
                 <div id="player2Primary1Tokens" class="tokens-div"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col left-gradient">
                 <div id="player1Secondary1Name" class="unit-name-div"></div>
                 <img id="player1Secondary1Img" class="unit-img" src="">
                 <div id="player1Secondary1Tokens" class="tokens-div">
@@ -73,7 +73,7 @@
             </div>
             <div class="col">
             </div>
-            <div class="col text-align-right">
+            <div class="col text-align-right right-gradient">
                 <div id="player2Secondary1Name" class="unit-name-div"></div>
                 <img id="player2Secondary1Img" class="unit-img" src="">
                 <div id="player2Secondary1Tokens" class="tokens-div">
@@ -81,35 +81,35 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col left-gradient">
                 <div id="player1Support1Name" class="unit-name-div"></div>
                 <img id="player1Support1Img" class="unit-img" src="">
                 <div id="player1Support1Tokens" class="tokens-div"></div>
             </div>
             <div class="col">
             </div>
-            <div class="col text-align-right">
+            <div class="col text-align-right right-gradient">
                 <div id="player2Support1Name" class="unit-name-div"></div>
                 <img id="player2Support1Img" class="unit-img" src="">
                 <div id="player2Support1Tokens" class="tokens-div"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col left-gradient">
                 <div id="player1Primary2Name" class="unit-name-div"></div>
                 <img id="player1Primary2Img" class="unit-img" src="">
                 <div id="player1Primary2Tokens" class="tokens-div"></div>
             </div>
             <div class="col">
             </div>
-            <div class="col text-align-right">
+            <div class="col text-align-right right-gradient">
                 <div id="player2Primary2Name" class="unit-name-div"></div>
                 <img id="player2Primary2Img" class="unit-img" src="">
                 <div id="player2Primary2Tokens" class="tokens-div"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col left-gradient">
                 <div id="player1Secondary2Name" class="unit-name-div"></div>
                 <img id="player1Secondary2Img" class="unit-img" src="">
                 <div id="player1Secondary2Tokens" class="tokens-div">
@@ -117,7 +117,7 @@
             </div>
             <div class="col">
             </div>
-            <div class="col text-align-right">
+            <div class="col text-align-right right-gradient">
                 <div id="player2Secondary2Name" class="unit-name-div"></div>
                 <img id="player2Secondary2Img" class="unit-img" src="">
                 <div id="player2Secondary2Tokens" class="tokens-div">
@@ -125,17 +125,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col left-gradient">
                 <div id="player1Support2Name" class="unit-name-div"></div>
                 <img id="player1Support2Img" class="unit-img" src="">
                 <div id="player1Support2Tokens" class="tokens-div"></div>
+                <br>
             </div>
             <div class="col">
             </div>
-            <div class="col text-align-right">
+            <div class="col text-align-right right-gradient">
                 <div id="player2Support2Name" class="unit-name-div"></div>
                 <img id="player2Support2Img" class="unit-img" src="">
                 <div id="player2Support2Tokens" class="tokens-div"></div>
+                <br>
             </div>
         </div>
 
@@ -166,14 +168,16 @@
             if (targetElementId.startsWith("playerName") || targetElementId.startsWith("squadName") || targetElementId.startsWith("strugglesWon")) {
                 document.getElementById(targetElementId).innerText = update[1];
             } else if (targetElementId.startsWith("unitUpdate_")) {
+                // Remove prefix
                 targetElementId = targetElementId.replace("unitUpdate_", "");
-                var unitName = update[1].replace(/-/g, ' ');
-                // TODO: add stamina and wounds to the update
-                document.getElementById(targetElementId).innerText = unitName;
-                // Update image element too
+                // Update image element
                 var targetImgElementId = targetElementId.replace("Name", "Img");
-                var imgSrcURL = getImageForUnitName(unitName);
+                var imgSrcURL = getImageForUnitName(update[1]);
                 document.getElementById(targetImgElementId).src = imgSrcURL;
+                // Remove dashes and update label
+                var unitName = update[1].replace(/-/g, ' ');
+                document.getElementById(targetElementId).innerText = unitName;
+                // TODO: add stamina and wounds to the update
             }
         });
     </script>

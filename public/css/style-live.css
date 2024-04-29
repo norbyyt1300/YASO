@@ -46,12 +46,21 @@ body {
     color: yellow;
 }
 
+.left-gradient {
+    background: linear-gradient(90deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0) 100%);
+}
+
+.right-gradient {
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.40) 100%);
+}
+
 .text-align-right {
     text-align: right;
 }
 
 .unit-name-div {
     margin-top: 30px;
+    color: white;
 }
 
 .unit-img {
@@ -60,6 +69,11 @@ body {
     object-fit: none;
     object-position: 93% 10%;
     opacity: 0.95;
+
+
+    border-image: linear-gradient(gray, white) 30;
+    border-width: 4px;
+    border-style: solid;
 }
 
 #cardImageModal {
