@@ -47,9 +47,17 @@
 }
 
 .damage-wounds-input {
-    width: 40px;
+    width: 60px;
     display: inline;
     text-align: center;
     margin-left: 10px;
     margin-right: 40px;
+}
+
+.damage-input {
+    border: 2px solid #AE2126;
+}
+
+.wounds-input {
+    border: 2px solid #3C6CA8;
 }

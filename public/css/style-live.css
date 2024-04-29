@@ -19,7 +19,7 @@ body {
 }
 
 .top-navbar {
-    background: linear-gradient(90deg, rgba(36, 0, 22, 0.9) 0%, rgba(121, 9, 9, 0.9) 20%, rgba(82, 54, 150, 0) 40%, rgba(58, 101, 181, 0) 60%, rgba(36, 143, 209, 0.9) 80%, rgba(0, 231, 255, 0.9) 100%);
+    background: linear-gradient(90deg, rgba(36, 0, 22, 0.9) 0%, rgba(121, 9, 9, 0.9) 10%, rgba(82, 54, 150, 0) 20%, rgba(58, 101, 181, 0) 80%, rgba(36, 143, 209, 0.9) 90%, rgba(0, 231, 255, 0.9) 100%);
     color: white;
     padding-left: 10px;
     padding-right: 10px;
@@ -47,11 +47,11 @@ body {
 }
 
 .left-gradient {
-    background: linear-gradient(90deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0) 30%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0) 30%);
 }
 
 .right-gradient {
-    background: linear-gradient(90deg, rgba(0,0,0,0) 70%, rgba(0,0,0,0.40) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.40) 100%);
 }
 
 .text-align-right {
@@ -61,6 +61,7 @@ body {
 .unit-name-div {
     margin-top: 30px;
     color: white;
+    font-size: 30px;
 }
 
 .unit-img-div {
@@ -75,3 +76,26 @@ body {
     opacity: 0.9;
 }
 
+.wounds-img {
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.damage-img {
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wounds-div {
+    margin-top: 15px;
+    color: #3C6CA8;
+}
+
+.damage-div {
+    margin-top: 15px;
+    color: #AE2126;
+}
