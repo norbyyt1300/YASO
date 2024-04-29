@@ -45,3 +45,11 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.damage-wounds-input {
+    width: 40px;
+    display: inline;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 40px;
+}
