@@ -34,6 +34,7 @@
     font-size: 20px;
     padding-right: 20px;
     color: lightgray;
+    margin-left: 60px;
 }
 
 .struggles-won-span {
@@ -47,7 +48,7 @@
 }
 
 .damage-wounds-input {
-    width: 60px;
+    width: 70px;
     display: inline;
     text-align: center;
     margin-left: 10px;
@@ -67,5 +68,9 @@
 }
 
 .unit-select {
-    margin-top: 10px;
+    margin-top: 5px;
+}
+
+.col-form-label-sm {
+    padding-bottom: 0px;
 }
