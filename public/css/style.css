@@ -1,0 +1,47 @@
+.player-name-label {
+    font-size: 40px;
+    padding-right: 20px;
+    color: lightgray;
+}
+
+.player-name-span {
+    font-size: 40px;
+    font-weight: bold;
+}
+.player-name-save-button {
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.squad-name-label {
+    font-size: 20px;
+    padding-right: 20px;
+    color: lightgray;
+}
+
+.squad-name-span {
+    font-size: 20px;
+    font-style: italic;
+}
+.squad-name-save-button {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.struggles-won-label {
+    font-size: 20px;
+    padding-right: 20px;
+    color: lightgray;
+}
+
+.struggles-won-span {
+    font-size: 20px;
+    color: yellow;
+}
+.struggles-won-save-button {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

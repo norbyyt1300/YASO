@@ -1,0 +1,67 @@
+body {
+    /*
+    background-image: url("AD OL.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    */
+
+    font-family: "Bebas Neue", sans-serif;
+
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+
+    overflow-y: hidden;
+}
+
+.top-navbar {
+    background: linear-gradient(90deg, rgba(36, 0, 22, 0.9) 0%, rgba(121, 9, 9, 0.9) 20%, rgba(82, 54, 150, 0) 40%, rgba(58, 101, 181, 0) 60%, rgba(36, 143, 209, 0.9) 80%, rgba(0, 231, 255, 0.9) 100%);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.player-name-element {
+    margin-top: 0px;
+    font-size: 60px;
+}
+
+.player-squad-name-element {
+    margin-top: 8px;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.struggles-won-label-element {
+    font-size: 20px;
+    color: white;
+}
+
+.struggles-won-element {
+    font-size: 20px;
+    color: yellow;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.unit-name-div {
+    margin-top: 30px;
+}
+
+.unit-img {
+    width: 90px;
+    height: 90px;
+    object-fit: none;
+    object-position: 93% 10%;
+    opacity: 0.95;
+}
+
+#cardImageModal {
+    opacity: 0.9;
+}

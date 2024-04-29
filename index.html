@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YASO</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <script src="/js/scripts.js"></script>
+
+</head>
+
+<body class="m-0 border-0 m-0 border-0 bg-secondary">
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-dark top-navbar bg-dark">
+        <a class="navbar-brand" href="#">Overlay Settings</a>
+        <form class="form-inline my-2 my-lg-0">
+            <a class="btn btn-outline-success my-2 my-sm-0 bg-light" type="submit" target="_blanK"
+                href="http://localhost:3000/live">View Live</a>
+        </form>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3 mt-2">
+                    <div class="card-header">
+                        <label class="player-name-label">Player 1 Name:</label><span contenteditable="true"
+                            class="player-name-span">Victor</span><span class="player-name-save-button"
+                            onclick="emit('playerName1', this)">&#128190;</span>
+                    </div>
+                    <div class="card-header border-top">
+                        <label class="squad-name-label">Squad 1 Name:</label><span contenteditable="true"
+                            class="squad-name-span">Anakin and Friends</span><span class="squad-name-save-button"
+                            onclick="emit('squadName1', this)">&#128190;</span>
+                    </div>
+                    <div class="card-header border-top">
+                        <label class="struggles-won-label">Struggles Won:</label><span contenteditable="true"
+                            class="struggles-won-span" type="number">0</span><span class="struggles-won-save-button"
+                            onclick="emit('strugglesWon1', this)">&#128190;</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Squad 1 Primary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player1Primary1Name', this.value)">
+                                <option>Ahsoka-Tano-Jedi-No-More</option>
+                                <option>Asajj-Ventress-Sith-Assassin</option>
+                                <option>Cad-Bane-Notorious-Hunter</option>
+                                <option>Chief-Chirpa</option>
+                                <option>Clone-Sergeant-Hunter</option>
+                                <option>Count-Dooku-Separatist-Leader</option>
+                                <option>Darth-Vader-Jedi-Hunter</option>
+                                <option>Darth-Vader-The-Emperors-Servant</option>
+                                <option>General-Anakin-Skywalker</option>
+                                <option>General-Grievous</option>
+                                <option>General-Obi-Wan-Kenobi</option>
+                                <option>Grand-Inquisitor-Fallen-Jedi</option>
+                                <option>Hondo-Honest-Businessman</option>
+                                <option>Jedi-Knight-Luke-Skywalker</option>
+                                <option>Jedi-Master-Luminara-Unduli</option>
+                                <option>Jedi-Master-Mace-Windu</option>
+                                <option>Jedi-Master-Plo-Koon</option>
+                                <option>Leia-Organa-Freedom-Fighter</option>
+                                <option>Logray-Bright-Tree-Shaman</option>
+                                <option>Lord-Maul</option>
+                                <option>Moff-Gideon</option>
+                                <option>Mother-Talzin</option>
+                                <option>Queen-Padme-Amidala</option>
+                                <option>The-Mandalorian</option>
+                            </select>
+                            <br>
+                            <label>Squad 1 Secondary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player1Secondary1Name', this.value)">
+                                <option>Aurra-Sing</option>
+                                <option>Barriss-Offee-Jedi-Padawan</option>
+                                <option>Bo-Katan-Kryze</option>
+                                <option>Boushh-Leia-Organa</option>
+                                <option>C-3po-And-R2-D2</option>
+                                <option>Cc-2224-Clone-Commander-Cody</option>
+                                <option>Cc-3636-Commander-Wolffe</option>
+                                <option>Cc-7567-Captain-Rex</option>
+                                <option>Crosshair</option>
+                                <option>Ct-411-Commander-Ponds</option>
+                                <option>Death-Trooper-Escort</option>
+                                <option>Gar-Saxon-Merciless-Commander</option>
+                                <option>Greef-Karga</option>
+                                <option>Gwarm</option>
+                                <option>Jango-Fett-Bounty-Hunter</option>
+                                <option>Kalani-Super-Tactical-Droid</option>
+                                <option>Kraken-Super-Tactical-Droid</option>
+                                <option>Obi-Wan-Kenobi-Out-Of-Hiding</option>
+                                <option>Padawan-Ahsoka-Tano</option>
+                                <option>Paploo-Curious-Creature</option>
+                                <option>Sabe-Royal-Bodyguard</option>
+                                <option>Savage-Opress</option>
+                                <option>Stormtrooper-Sergeant</option>
+                                <option>Third-Sister</option>
+                                <option>Wicket-Intrepid-Warrior</option>
+                                <option>Wrecker-And-Omega</option>
+                            </select>
+                            <br>
+                            <label>Squad 1 Support Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player1Support1Name', this.value)">
+                                <option>104th-Wolfpack-Troopers</option>
+                                <option>212th-Clone-Troopers</option>
+                                <option>501st-Clone-Troopers</option>
+                                <option>Arf-Clone-Troopers</option>
+                                <option>B1-Battle-Droids</option>
+                                <option>B2-Battle-Droids</option>
+                                <option>Bounty-Hunters</option>
+                                <option>Clan-Kryze-Mandalorians</option>
+                                <option>Dark-Troopers</option>
+                                <option>Echo-And-Tech</option>
+                                <option>Ewok-Hunters</option>
+                                <option>Ewok-Trappers</option>
+                                <option>Fifth-Brother</option>
+                                <option>Fourth-Sister</option>
+                                <option>Ig-11-Assassin-Droid</option>
+                                <option>Lando-And-R2-D2-Inside-Job</option>
+                                <option>Magnaguard</option>
+                                <option>Mandalorian-Super-Commandos</option>
+                                <option>Naboo-Royal-Handmaidens</option>
+                                <option>Nightsister-Acolytes</option>
+                                <option>Republic-Clone-Commandos</option>
+                                <option>Stormtroopers</option>
+                                <option>Weequay-Pirates</option>
+                            </select>
+                            <br>
+                            <label>Squad 2 Primary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player1Primary2Name', this.value)">
+                                <option>Ahsoka-Tano-Jedi-No-More</option>
+                                <option>Asajj-Ventress-Sith-Assassin</option>
+                                <option>Cad-Bane-Notorious-Hunter</option>
+                                <option>Chief-Chirpa</option>
+                                <option>Clone-Sergeant-Hunter</option>
+                                <option>Count-Dooku-Separatist-Leader</option>
+                                <option>Darth-Vader-Jedi-Hunter</option>
+                                <option>Darth-Vader-The-Emperors-Servant</option>
+                                <option>General-Anakin-Skywalker</option>
+                                <option>General-Grievous</option>
+                                <option>General-Obi-Wan-Kenobi</option>
+                                <option>Grand-Inquisitor-Fallen-Jedi</option>
+                                <option>Hondo-Honest-Businessman</option>
+                                <option>Jedi-Knight-Luke-Skywalker</option>
+                                <option>Jedi-Master-Luminara-Unduli</option>
+                                <option>Jedi-Master-Mace-Windu</option>
+                                <option>Jedi-Master-Plo-Koon</option>
+                                <option>Leia-Organa-Freedom-Fighter</option>
+                                <option>Logray-Bright-Tree-Shaman</option>
+                                <option>Lord-Maul</option>
+                                <option>Moff-Gideon</option>
+                                <option>Mother-Talzin</option>
+                                <option>Queen-Padme-Amidala</option>
+                                <option>The-Mandalorian</option>
+                            </select>
+                            <br>
+                            <label>Squad 2 Secondary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player1Secondary2Name', this.value)">
+                                <option>Aurra-Sing</option>
+                                <option>Barriss-Offee-Jedi-Padawan</option>
+                                <option>Bo-Katan-Kryze</option>
+                                <option>Boushh-Leia-Organa</option>
+                                <option>C-3po-And-R2-D2</option>
+                                <option>Cc-2224-Clone-Commander-Cody</option>
+                                <option>Cc-3636-Commander-Wolffe</option>
+                                <option>Cc-7567-Captain-Rex</option>
+                                <option>Crosshair</option>
+                                <option>Ct-411-Commander-Ponds</option>
+                                <option>Death-Trooper-Escort</option>
+                                <option>Gar-Saxon-Merciless-Commander</option>
+                                <option>Greef-Karga</option>
+                                <option>Gwarm</option>
+                                <option>Jango-Fett-Bounty-Hunter</option>
+                                <option>Kalani-Super-Tactical-Droid</option>
+                                <option>Kraken-Super-Tactical-Droid</option>
+                                <option>Obi-Wan-Kenobi-Out-Of-Hiding</option>
+                                <option>Padawan-Ahsoka-Tano</option>
+                                <option>Paploo-Curious-Creature</option>
+                                <option>Sabe-Royal-Bodyguard</option>
+                                <option>Savage-Opress</option>
+                                <option>Stormtrooper-Sergeant</option>
+                                <option>Third-Sister</option>
+                                <option>Wicket-Intrepid-Warrior</option>
+                                <option>Wrecker-And-Omega</option>
+                            </select>
+                            <br>
+                            <label>Squad 2 Support Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player1Support2Name', this.value)">
+                                <option>104th-Wolfpack-Troopers</option>
+                                <option>212th-Clone-Troopers</option>
+                                <option>501st-Clone-Troopers</option>
+                                <option>Arf-Clone-Troopers</option>
+                                <option>B1-Battle-Droids</option>
+                                <option>B2-Battle-Droids</option>
+                                <option>Bounty-Hunters</option>
+                                <option>Clan-Kryze-Mandalorians</option>
+                                <option>Dark-Troopers</option>
+                                <option>Echo-And-Tech</option>
+                                <option>Ewok-Hunters</option>
+                                <option>Ewok-Trappers</option>
+                                <option>Fifth-Brother</option>
+                                <option>Fourth-Sister</option>
+                                <option>Ig-11-Assassin-Droid</option>
+                                <option>Lando-And-R2-D2-Inside-Job</option>
+                                <option>Magnaguard</option>
+                                <option>Mandalorian-Super-Commandos</option>
+                                <option>Naboo-Royal-Handmaidens</option>
+                                <option>Nightsister-Acolytes</option>
+                                <option>Republic-Clone-Commandos</option>
+                                <option>Stormtroopers</option>
+                                <option>Weequay-Pirates</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 text-center p-xs-3 p-md-2 p-lg-1"></div>
+            <div class="col-md-4">
+                <div class="card text-white bg-dark mb-3 mt-2">
+                    <div class="card-header">
+                        <label class="player-name-label">Player 2 Name:</label><span contenteditable="true"
+                            class="player-name-span">Linden</span><span class="player-name-save-button"
+                            onclick="emit('playerName2', this)">&#128190;</span>
+                    </div>
+                    <div class="card-header border-top">
+                        <label class="squad-name-label">Squad 2 Name:</label><span contenteditable="true"
+                            class="squad-name-span">Scum Squad</span><span class="squad-name-save-button"
+                            onclick="emit('squadName2', this)">&#128190;</span>
+                    </div>
+                    <div class="card-header border-top">
+                        <label class="struggles-won-label">Struggles Won:</label><span contenteditable="true"
+                            class="struggles-won-span">0</span><span class="struggles-won-save-button"
+                            onclick="emit('strugglesWon2', this)">&#128190;</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Squad 1 Primary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player2Primary1Name', this.value)">
+                                <option>Ahsoka-Tano-Jedi-No-More</option>
+                                <option>Asajj-Ventress-Sith-Assassin</option>
+                                <option>Cad-Bane-Notorious-Hunter</option>
+                                <option>Chief-Chirpa</option>
+                                <option>Clone-Sergeant-Hunter</option>
+                                <option>Count-Dooku-Separatist-Leader</option>
+                                <option>Darth-Vader-Jedi-Hunter</option>
+                                <option>Darth-Vader-The-Emperors-Servant</option>
+                                <option>General-Anakin-Skywalker</option>
+                                <option>General-Grievous</option>
+                                <option>General-Obi-Wan-Kenobi</option>
+                                <option>Grand-Inquisitor-Fallen-Jedi</option>
+                                <option>Hondo-Honest-Businessman</option>
+                                <option>Jedi-Knight-Luke-Skywalker</option>
+                                <option>Jedi-Master-Luminara-Unduli</option>
+                                <option>Jedi-Master-Mace-Windu</option>
+                                <option>Jedi-Master-Plo-Koon</option>
+                                <option>Leia-Organa-Freedom-Fighter</option>
+                                <option>Logray-Bright-Tree-Shaman</option>
+                                <option>Lord-Maul</option>
+                                <option>Moff-Gideon</option>
+                                <option>Mother-Talzin</option>
+                                <option>Queen-Padme-Amidala</option>
+                                <option>The-Mandalorian</option>
+                            </select>
+                            <br>
+                            <label>Squad 1 Secondary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player2Secondary1Name', this.value)">
+                                <option>Aurra-Sing</option>
+                                <option>Barriss-Offee-Jedi-Padawan</option>
+                                <option>Bo-Katan-Kryze</option>
+                                <option>Boushh-Leia-Organa</option>
+                                <option>C-3po-And-R2-D2</option>
+                                <option>Cc-2224-Clone-Commander-Cody</option>
+                                <option>Cc-3636-Commander-Wolffe</option>
+                                <option>Cc-7567-Captain-Rex</option>
+                                <option>Crosshair</option>
+                                <option>Ct-411-Commander-Ponds</option>
+                                <option>Death-Trooper-Escort</option>
+                                <option>Gar-Saxon-Merciless-Commander</option>
+                                <option>Greef-Karga</option>
+                                <option>Gwarm</option>
+                                <option>Jango-Fett-Bounty-Hunter</option>
+                                <option>Kalani-Super-Tactical-Droid</option>
+                                <option>Kraken-Super-Tactical-Droid</option>
+                                <option>Obi-Wan-Kenobi-Out-Of-Hiding</option>
+                                <option>Padawan-Ahsoka-Tano</option>
+                                <option>Paploo-Curious-Creature</option>
+                                <option>Sabe-Royal-Bodyguard</option>
+                                <option>Savage-Opress</option>
+                                <option>Stormtrooper-Sergeant</option>
+                                <option>Third-Sister</option>
+                                <option>Wicket-Intrepid-Warrior</option>
+                                <option>Wrecker-And-Omega</option>
+                            </select>
+                            <br>
+                            <label>Squad 1 Support Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player2Support1Name', this.value)">
+                                <option>104th-Wolfpack-Troopers</option>
+                                <option>212th-Clone-Troopers</option>
+                                <option>501st-Clone-Troopers</option>
+                                <option>Arf-Clone-Troopers</option>
+                                <option>B1-Battle-Droids</option>
+                                <option>B2-Battle-Droids</option>
+                                <option>Bounty-Hunters</option>
+                                <option>Clan-Kryze-Mandalorians</option>
+                                <option>Dark-Troopers</option>
+                                <option>Echo-And-Tech</option>
+                                <option>Ewok-Hunters</option>
+                                <option>Ewok-Trappers</option>
+                                <option>Fifth-Brother</option>
+                                <option>Fourth-Sister</option>
+                                <option>Ig-11-Assassin-Droid</option>
+                                <option>Lando-And-R2-D2-Inside-Job</option>
+                                <option>Magnaguard</option>
+                                <option>Mandalorian-Super-Commandos</option>
+                                <option>Naboo-Royal-Handmaidens</option>
+                                <option>Nightsister-Acolytes</option>
+                                <option>Republic-Clone-Commandos</option>
+                                <option>Stormtroopers</option>
+                                <option>Weequay-Pirates</option>
+                            </select>
+                            <br>
+                            <label>Squad 2 Primary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player2Primary2Name', this.value)">
+                                <option>Ahsoka-Tano-Jedi-No-More</option>
+                                <option>Asajj-Ventress-Sith-Assassin</option>
+                                <option>Cad-Bane-Notorious-Hunter</option>
+                                <option>Chief-Chirpa</option>
+                                <option>Clone-Sergeant-Hunter</option>
+                                <option>Count-Dooku-Separatist-Leader</option>
+                                <option>Darth-Vader-Jedi-Hunter</option>
+                                <option>Darth-Vader-The-Emperors-Servant</option>
+                                <option>General-Anakin-Skywalker</option>
+                                <option>General-Grievous</option>
+                                <option>General-Obi-Wan-Kenobi</option>
+                                <option>Grand-Inquisitor-Fallen-Jedi</option>
+                                <option>Hondo-Honest-Businessman</option>
+                                <option>Jedi-Knight-Luke-Skywalker</option>
+                                <option>Jedi-Master-Luminara-Unduli</option>
+                                <option>Jedi-Master-Mace-Windu</option>
+                                <option>Jedi-Master-Plo-Koon</option>
+                                <option>Leia-Organa-Freedom-Fighter</option>
+                                <option>Logray-Bright-Tree-Shaman</option>
+                                <option>Lord-Maul</option>
+                                <option>Moff-Gideon</option>
+                                <option>Mother-Talzin</option>
+                                <option>Queen-Padme-Amidala</option>
+                                <option>The-Mandalorian</option>
+                            </select>
+                            <br>
+                            <label>Squad 2 Secondary Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player2Secondary2Name', this.value)">
+                                <option>Aurra-Sing</option>
+                                <option>Barriss-Offee-Jedi-Padawan</option>
+                                <option>Bo-Katan-Kryze</option>
+                                <option>Boushh-Leia-Organa</option>
+                                <option>C-3po-And-R2-D2</option>
+                                <option>Cc-2224-Clone-Commander-Cody</option>
+                                <option>Cc-3636-Commander-Wolffe</option>
+                                <option>Cc-7567-Captain-Rex</option>
+                                <option>Crosshair</option>
+                                <option>Ct-411-Commander-Ponds</option>
+                                <option>Death-Trooper-Escort</option>
+                                <option>Gar-Saxon-Merciless-Commander</option>
+                                <option>Greef-Karga</option>
+                                <option>Gwarm</option>
+                                <option>Jango-Fett-Bounty-Hunter</option>
+                                <option>Kalani-Super-Tactical-Droid</option>
+                                <option>Kraken-Super-Tactical-Droid</option>
+                                <option>Obi-Wan-Kenobi-Out-Of-Hiding</option>
+                                <option>Padawan-Ahsoka-Tano</option>
+                                <option>Paploo-Curious-Creature</option>
+                                <option>Sabe-Royal-Bodyguard</option>
+                                <option>Savage-Opress</option>
+                                <option>Stormtrooper-Sergeant</option>
+                                <option>Third-Sister</option>
+                                <option>Wicket-Intrepid-Warrior</option>
+                                <option>Wrecker-And-Omega</option>
+                            </select>
+                            <br>
+                            <label>Squad 2 Support Unit</label>
+                            <select class="form-control" onclick="emitUnitUpdate('player2Support2Name', this.value)">
+                                <option>104th-Wolfpack-Troopers</option>
+                                <option>212th-Clone-Troopers</option>
+                                <option>501st-Clone-Troopers</option>
+                                <option>Arf-Clone-Troopers</option>
+                                <option>B1-Battle-Droids</option>
+                                <option>B2-Battle-Droids</option>
+                                <option>Bounty-Hunters</option>
+                                <option>Clan-Kryze-Mandalorians</option>
+                                <option>Dark-Troopers</option>
+                                <option>Echo-And-Tech</option>
+                                <option>Ewok-Hunters</option>
+                                <option>Ewok-Trappers</option>
+                                <option>Fifth-Brother</option>
+                                <option>Fourth-Sister</option>
+                                <option>Ig-11-Assassin-Droid</option>
+                                <option>Lando-And-R2-D2-Inside-Job</option>
+                                <option>Magnaguard</option>
+                                <option>Mandalorian-Super-Commandos</option>
+                                <option>Naboo-Royal-Handmaidens</option>
+                                <option>Nightsister-Acolytes</option>
+                                <option>Republic-Clone-Commandos</option>
+                                <option>Stormtroopers</option>
+                                <option>Weequay-Pirates</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Web socket link to settings page -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        function emit(targetElementId, saveButtonElement) {
+            socket.emit('update', [targetElementId, saveButtonElement.previousSibling.innerText.trim()])
+        }
+
+        function emitUnitUpdate(targetElementId, newValue) {
+            socket.emit('update', ["unitUpdate_" + targetElementId, newValue])
+        }
+
+        socket.on('update', function (update) {
+            console.log('Socket update received from settings page: ', update);
+        });
+    </script>
+
+</body>
+
+</html>
