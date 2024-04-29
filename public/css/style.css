@@ -61,3 +61,11 @@
 .wounds-input {
     border: 2px solid #3C6CA8;
 }
+
+.toggle-card-button {
+    margin-left: 20px;
+}
+
+.unit-select {
+    margin-top: 10px;
+}
