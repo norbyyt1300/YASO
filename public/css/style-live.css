@@ -27,7 +27,7 @@ body {
 
 .player-name-element {
     margin-top: 0px;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .player-squad-name-element {
@@ -47,21 +47,25 @@ body {
 }
 
 .left-gradient {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0) 40%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0) 40%);
 }
 
 .right-gradient {
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.40) 100%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.50) 100%);
 }
 
 .text-align-right {
     text-align: right;
 }
 
+.text-align-left {
+    text-align: left;
+}
+
 .unit-name-div {
     margin-top: 30px;
     color: white;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .unit-img-div {
@@ -80,7 +84,7 @@ body {
 }
 
 .modal-xl {
-    max-width: 1600px;
+    max-width: 1000px;
 }
 
 .modal-content {
@@ -92,6 +96,7 @@ body {
     width: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    filter: invert(100%);
 }
 
 .damage-img {
@@ -99,14 +104,25 @@ body {
     width: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    filter: invert(100%);
 }
 
 .wounds-div {
     margin-top: 15px;
-    color: #3C6CA8;
+    color: lightblue;
+    font-size: 20px;
 }
 
 .damage-div {
     margin-top: 15px;
-    color: #AE2126;
+    color: lightpink;
+    font-size: 20px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.padding-bottom-20 {
+    padding-bottom: 20px;
 }
