@@ -1,3 +1,55 @@
+var cardImgElement = document.getElementById("cardImage");
+var cardImgModal = document.getElementById("cardImageModal");
+
+var socket = io();
+socket.on('update', function (update) {
+    console.log('Socket update received from settings page: ', update);
+
+    var command = update[0];
+
+    if (command == "updateElementInnerHTML") {
+        console.log("Updating element inner HTML:");
+        document.getElementById(update[1]).innerHTML = update[2];
+    } else if (command=="HideCurrentlyShownCard") {
+        console.log("Hiding modal for card");
+        $('#cardImageModal').modal('hide');
+    } else {
+
+        var targetElementId = update[0];
+
+        if (targetElementId.startsWith("playerName") || targetElementId.startsWith("squadName") || targetElementId.startsWith("strugglesWon")) {
+            document.getElementById(targetElementId).innerText = update[1];
+        } else if (targetElementId.startsWith("unitUpdate_")) {
+            // Remove prefix
+            targetElementId = targetElementId.replace("unitUpdate_", "");
+            // Update image element
+            var targetImgElementId = targetElementId.replace("Name", "Img");
+            var imgSrcURL = getImageForUnitName(update[1]);
+            document.getElementById(targetImgElementId).style.backgroundImage = "url(" + imgSrcURL + ")";
+            // Remove dashes and update label
+            var unitName = update[1].replace(/-/g, ' ');
+            document.getElementById(targetElementId).innerText = unitName;
+            // TODO: add stamina and wounds to the update
+        } else if (targetElementId.startsWith("unitDamageWoundsUpdate_")) {
+            // Remove prefix
+            targetElementId = targetElementId.replace("unitDamageWoundsUpdate_", "");
+            console.log(targetElementId);
+            console.log("Updating unit damage and wounds:", targetElementId, update[1]);
+
+            if (targetElementId.endsWith("Wounds")) {
+                document.getElementById(targetElementId).innerHTML = update[1] + "<img src='https://shatterpointdb.com/media/tiol4sk3/shatterpointhealicon.png' class='wounds-img'>";
+            }
+            if (targetElementId.endsWith("Damage")) {
+                document.getElementById(targetElementId).innerHTML = update[1] + "<img src='https://shatterpointdb.com/media/yvxlykhe/shatterpointdamageicon.png' class='damage-img'>";
+            }
+        } else if (targetElementId.startsWith("showCardUpdate")) {
+            var imgSrcURL = getImageForUnitName(update[1]);
+            cardImgElement.src = imgSrcURL;
+            $('#cardImageModal').modal('show');
+        }
+    }
+});
+
 function getImageForUnitName(unitNamewithDashes) {
     console.log("Matching on", unitNamewithDashes);
     switch (unitNamewithDashes) {

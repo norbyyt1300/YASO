@@ -67,10 +67,10 @@
     margin-left: 20px;
 }
 
-.unit-select {
-    margin-top: 5px;
-}
-
 .col-form-label-sm {
     padding-bottom: 0px;
+}
+
+#sourceCodeButton {
+    margin-right: 20px;
 }

@@ -17,41 +17,51 @@
 
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-    <script src="/js/scripts.js"></script>
-
 </head>
 
 <body class="m-0 border-0 m-0 border-0 bg-secondary">
 
     <!-- Top Navbar -->
     <nav class="navbar navbar-dark top-navbar bg-dark">
-        <a class="navbar-brand" href="#">Overlay Settings</a>
+        <a class="navbar-brand" href="#">YASO Overlay Settings Page</a>
+        <button type="button" class="btn btn-danger" onclick="emitHideCurrentlyDisplayedCard()">Hide Current Card</button>
         <form class="form-inline my-2 my-lg-0">
+            <a id="sourceCodeButton" class="btn my-2 my-sm-0 bg-light me-2" type="submit" target="_blanK"
+                href="https://github.com/norbyyt1300/YASO">View Project Source Code</a>
             <a class="btn btn-outline-success my-2 my-sm-0 bg-light" type="submit" target="_blanK"
                 href="http://localhost:3000/live">View Live</a>
         </form>
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card text-white bg-dark mb-3 mt-2">
-                    <div class="card-header">
-                        <label class="player-name-label">Player 1 Name:</label><span contenteditable="true"
-                            class="player-name-span">Victor</span><span class="player-name-save-button"
-                            onclick="emit('playerName1', this)">&#128190;</span>
-                    </div>
-                    <div class="card-header border-top">
-                        <label class="squad-name-label">Squad 1 Name:</label><span contenteditable="true"
-                            class="squad-name-span">Anakin and Friends</span><span class="squad-name-save-button"
-                            onclick="emit('squadName1', this)">&#128190;</span>
+            <div class="col-md-6">
 
-                        <label class="struggles-won-label">Struggles Won:</label><span contenteditable="true"
-                            class="struggles-won-span" type="number">0</span><span class="struggles-won-save-button"
-                            onclick="emit('strugglesWon1', this)">&#128190;</span>
+                <div class="card text-white bg-dark mt-2">
+                    <div class="card-body row">
+                        <label class="col-sm-4 col-form-label col-form-label-lg">Player 1 Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 1 name"
+                                onchange="emitUpdateElementInnerHTML('playerName1', this.value)">
+                        </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body row ">
+                        <label class="col-sm-4 col-form-label col-form-label-lg">Strike Team Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 1 strike team name"
+                                onchange="emitUpdateElementInnerHTML('squadName1', this.value)">
+                        </div>
+                    </div>
+                    <div class="card-body row">
+                        <label class="col-sm-4 col-form-label col-form-label-lg">Struggles Won</label>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control form-control-lg text-center" value="0"
+                                onchange="emitUpdateElementInnerHTML('strugglesWon1', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row">
                         <div class="form-group">
-                            <label>Squad 1 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 1 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player1Primary1Name', this.value)">
                                 <option>Ahsoka-Tano-Jedi-No-More</option>
                                 <option>Asajj-Ventress-Sith-Assassin</option>
@@ -83,7 +93,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary1Wounds', this.value)" >
                             <hr/>
                             <br>
-                            <label>Squad 1 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 1 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player1Secondary1Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
@@ -117,7 +127,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary1Wounds', this.value)" >
                             <hr/>                            
                             <br>
-                            <label>Squad 1 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 1 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player1Support1Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
@@ -148,7 +158,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support1Wounds', this.value)" >
                             <hr/>
                             <br>
-                            <label>Squad 2 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 2 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player1Primary2Name', this.value)">
                                 <option>Ahsoka-Tano-Jedi-No-More</option>
                                 <option>Asajj-Ventress-Sith-Assassin</option>
@@ -180,7 +190,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary2Wounds', this.value)" >
                             <hr/>                               
                             <br>
-                            <label>Squad 2 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 2 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player1Secondary2Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
@@ -214,7 +224,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary2Wounds', this.value)" >
                             <hr/>                              
                             <br>
-                            <label>Squad 2 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 2 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player1Support2Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
@@ -249,27 +259,49 @@
                 </div>
 
             </div>
-            <div class="col-md-4 text-center p-xs-3 p-md-2 p-lg-1"></div>
-            <div class="col-md-4">
-                <div class="card text-white bg-dark mb-3 mt-2">
-                    <div class="card-header">
-                        <label class="player-name-label">Player 2 Name:</label><span contenteditable="true"
-                            class="player-name-span">Linden</span><span class="player-name-save-button"
-                            onclick="emit('playerName2', this)">&#128190;</span>
-                    </div>
-                    <div class="card-header border-top">
-                        <label class="squad-name-label">Squad 2 Name:</label><span contenteditable="true"
-                            class="squad-name-span">Scum Squad</span><span class="squad-name-save-button"
-                            onclick="emit('squadName2', this)">&#128190;</span>
 
-                        <label class="struggles-won-label">Struggles Won:</label><span contenteditable="true"
-                            class="struggles-won-span">0</span><span class="struggles-won-save-button"
-                            onclick="emit('strugglesWon2', this)">&#128190;</span>
+            <div class="col-md-6">
+                <div class="card text-white bg-dark mt-2">
+                    <div class="card-body row">
+                        <label class="col-sm-4 col-form-label col-form-label-lg">Player 2 Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 2 name"
+                                onchange="emitUpdateElementInnerHTML('playerName2', this.value)">
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Squad 1 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player2Primary1Name', this.value)">
+                    <div class="card-body row ">
+                        <label class="col-sm-4 col-form-label col-form-label-lg">Strike Team Name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 2 strike team name"
+                                onchange="emitUpdateElementInnerHTML('squadName2', this.value)">
+                        </div>
+                    </div>
+                    <div class="card-body row">
+                        <label class="col-sm-4 col-form-label col-form-label-lg">Struggles Won</label>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control form-control-lg text-center" value="0"
+                                onchange="emitUpdateElementInnerHTML('strugglesWon2', this.value)">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="card text-white bg-dark mt-2">
+
+
+
+
+
+
+
+                    
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 1 Primary</label>
+                        <div class="col-sm-4">
+                            <select id="primary1NamePlayer2" class="form-control unit-select" onclick="emitUnitUpdate('player2Primary1Name', this.value)">
                                 <option>Ahsoka-Tano-Jedi-No-More</option>
                                 <option>Asajj-Ventress-Sith-Assassin</option>
                                 <option>Cad-Bane-Notorious-Hunter</option>
@@ -295,12 +327,44 @@
                                 <option>Queen-Padme-Amidala</option>
                                 <option>The-Mandalorian</option>
                             </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('primary1NamePlayer2').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('primary1NamePlayer2').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary1Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary1Wounds', this.value)">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div>
+                    
                             <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary1Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary1Wounds', this.value)" >
-                            <hr/>                            
-                            <br>
-                            <label>Squad 1 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 1 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player2Secondary1Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
@@ -334,7 +398,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary1Wounds', this.value)" >
                             <hr/>                               
                             <br>
-                            <label>Squad 1 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 1 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player2Support1Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
@@ -365,7 +429,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support1Wounds', this.value)" >
                             <hr/>                                 
                             <br>
-                            <label>Squad 2 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 2 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player2Primary2Name', this.value)">
                                 <option>Ahsoka-Tano-Jedi-No-More</option>
                                 <option>Asajj-Ventress-Sith-Assassin</option>
@@ -397,7 +461,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary2Wounds', this.value)" >
                             <hr/>                            
                             <br>
-                            <label>Squad 2 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 2 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player2Secondary2Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
@@ -431,7 +495,7 @@
                             <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary2Wounds', this.value)" >
                             <hr/>                               
                             <br>
-                            <label>Squad 2 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Toggle Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Toggle Stance</a>
+                            <label>Squad 2 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
                             <select class="form-control unit-select" onclick="emitUnitUpdate('player2Support2Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
@@ -472,33 +536,7 @@
 
     <!-- Web socket link to settings page -->
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-
-        function emit(targetElementId, saveButtonElement) {
-            socket.emit('update', [targetElementId, saveButtonElement.previousSibling.innerText.trim()])
-        }
-
-        function emitUnitUpdate(targetElementId, newValue) {
-            socket.emit('update', ["unitUpdate_" + targetElementId, newValue])
-        }
-
-        function emitUnitDamageWoundsUpdate(targetElementId, newValue) {
-            socket.emit('update', ["unitDamageWoundsUpdate_" + targetElementId, newValue])
-        }
-
-        function emitCardToShow(selectedUnitNameWithDashes) {
-            socket.emit('update', ["showCardUpdate", selectedUnitNameWithDashes]);
-        }
-
-        function emitStanceCardToShow(selectedUnitNameWithDashes) {
-            socket.emit('update', ["showStanceUpdate", selectedUnitNameWithDashes]);
-        }
-
-        socket.on('update', function (update) {
-            console.log('Socket update received from settings page: ', update);
-        });
-    </script>
+    <script src="/js/scripts.js"></script>
 
 </body>
 

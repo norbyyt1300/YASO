@@ -15,13 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!--
-    <link rel="stylesheet" href="styling.css">
-    -->
-
     <link rel="stylesheet" type="text/css" href="/css/style-live.css">
-
-    <script src="/js/scripts-live.js"></script>
 
 </head>
 
@@ -38,6 +32,7 @@
                 <label class="struggles-won-label-element">Struggles won:</label>
                 <span id="strugglesWon1" class="struggles-won-element">0</span>
             </div>
+            <img id="logoImage" src="https://shatterpointdb.com/media/mk5dqc0q/starwars-shatterpoint-logo-removebg-preview-1.png">
             <!-- Right elements for player 2 -->
             <div class="text-right">
                 <div id="squadName2" class="player-squad-name-element">(Strike team name)</div>
@@ -163,53 +158,8 @@
         </div>
     </div>
 
-
-
-    <!-- Web socket link to settings page -->
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-
-        var cardImgElement = document.getElementById("cardImage");
-        var cardImgModal = document.getElementById("cardImageModal");
-
-        var socket = io();
-        socket.on('update', function (update) {
-            console.log('Socket update received from settings page: ', update);
-
-            var targetElementId = update[0];
-
-            if (targetElementId.startsWith("playerName") || targetElementId.startsWith("squadName") || targetElementId.startsWith("strugglesWon")) {
-                document.getElementById(targetElementId).innerText = update[1];
-            } else if (targetElementId.startsWith("unitUpdate_")) {
-                // Remove prefix
-                targetElementId = targetElementId.replace("unitUpdate_", "");
-                // Update image element
-                var targetImgElementId = targetElementId.replace("Name", "Img");
-                var imgSrcURL = getImageForUnitName(update[1]);
-                document.getElementById(targetImgElementId).style.backgroundImage = "url(" + imgSrcURL + ")";
-                // Remove dashes and update label
-                var unitName = update[1].replace(/-/g, ' ');
-                document.getElementById(targetElementId).innerText = unitName;
-                // TODO: add stamina and wounds to the update
-            } else if (targetElementId.startsWith("unitDamageWoundsUpdate_")) {
-                // Remove prefix
-                targetElementId = targetElementId.replace("unitDamageWoundsUpdate_", "");
-                console.log(targetElementId);
-                console.log("Updating unit damage and wounds:", targetElementId, update[1]);
-
-                if (targetElementId.endsWith("Wounds")) {
-                    document.getElementById(targetElementId).innerHTML = update[1] + "<img src='https://shatterpointdb.com/media/tiol4sk3/shatterpointhealicon.png' class='wounds-img'>";
-                }
-                if (targetElementId.endsWith("Damage")) {
-                    document.getElementById(targetElementId).innerHTML = update[1] + "<img src='https://shatterpointdb.com/media/yvxlykhe/shatterpointdamageicon.png' class='damage-img'>";
-                }
-            } else if (targetElementId.startsWith("showCardUpdate")) {
-                var imgSrcURL = getImageForUnitName(update[1]);
-                cardImgElement.src = imgSrcURL;
-                $('#cardImageModal').modal('toggle');
-            }
-        });
-    </script>
+    <script src="/js/scripts-live.js"></script>
 
 </body>
 
