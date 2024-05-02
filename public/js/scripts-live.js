@@ -60,7 +60,7 @@ function getStanceImageForUnitName(unitNamewithDashes) {
     console.log("Matching on", unitNamewithDashes);
     switch (unitNamewithDashes) {
         case "Ahsoka-Tano-Jedi-No-More": return "https://shatterpointdb.com/media/lbfpcqyb/swp01_ahsoka_stance_article-2.png";
-        case "Asajj-Ventress-Sith-Assassin": return "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-one.png";
+        case "Asajj-Ventress-Sith-Assassin": return "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png";
         case "Cad-Bane-Notorious-Hunter": return "https://shatterpointdb.com/media/do3cryei/shatterpoint-cad-bane-stance-one.png";
         case "Chief-Chirpa": return "https://shatterpointdb.com/media/1bhffout/shatterpoint-chief-chirpa-stance-two-card.png";
         case "Clone-Sergeant-Hunter": return "https://shatterpointdb.com/media/vexhz0xa/shatterpoint-clone-sergeant-hunter-stance-two-card.png";
