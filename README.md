@@ -19,3 +19,6 @@ http://localhost:3000/live
 You can access the settings page from a separate browser at 
 
 http://localhost:3000
+
+
+Thank you SO MUCH to the amazing folks who create and run the Shatterpoint Database website (https://shatterpointdb.com/), from which we're pulling the images!

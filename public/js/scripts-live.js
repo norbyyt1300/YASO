@@ -50,6 +50,32 @@ socket.on('update', function (update) {
             $('#cardImageModal').modal('show');
         } else if (targetElementId.startsWith("showStanceUpdate")) {
             var imgSrcURL = getStanceImageForUnitName(update[1]);
+
+            /*
+            // Check if the image already matches!
+            if (cardImgElement.src == imgSrcURL) {
+
+                if (imgSrcURL.includes("stance-one")) {
+                    imgSrcURL = imgSrcURL.replace("stance-one", "stance-two");
+                } else if (imgSrcURL.includes("stance-two")) {
+                    imgSrcURL = imgSrcURL.replace("stance-two", "stance-one");
+                } else if (imgSrcURL.includes("stance-1")) {
+                    imgSrcURL = imgSrcURL.replace("stance-1", "stance-2");
+                } else if (imgSrcURL.includes("stance-2")) {
+                    imgSrcURL = imgSrcURL.replace("stance-2", "stance-1");
+                } else if (imgSrcURL.includes("stance1")) {
+                    imgSrcURL = imgSrcURL.replace("stance1", "stance2");
+                } else if (imgSrcURL.includes("stance2")) {
+                    imgSrcURL = imgSrcURL.replace("stance2", "stance1");
+                } else if (imgSrcURL.includes("stanceone")) {
+                    imgSrcURL = imgSrcURL.replace("stanceone", "stancetwo");
+                } else if (imgSrcURL.includes("stancetwo")) {
+                    imgSrcURL = imgSrcURL.replace("stancetwo", "stanceone");
+                }
+
+            }
+            */
+
             cardImgElement.src = imgSrcURL;
             $('#cardImageModal').modal('show');
         }
