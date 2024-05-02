@@ -37,14 +37,14 @@
             <div class="col-md-6">
 
                 <div class="card text-white bg-dark mt-2">
-                    <div class="card-body row">
+                    <div class="card-body row pb-0">
                         <label class="col-sm-4 col-form-label col-form-label-lg">Player 1 Name</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control form-control-lg" placeholder="Enter Player 1 name"
                                 onchange="emitUpdateElementInnerHTML('playerName1', this.value)">
                         </div>
                     </div>
-                    <div class="card-body row ">
+                    <div class="card-body row pb-0">
                         <label class="col-sm-4 col-form-label col-form-label-lg">Strike Team Name</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control form-control-lg" placeholder="Enter Player 1 strike team name"
@@ -58,11 +58,13 @@
                                 onchange="emitUpdateElementInnerHTML('strugglesWon1', this.value)">
                         </div>
                     </div>
+                </div>
 
-                    <div class="card-body row">
-                        <div class="form-group">
-                            <label>Squad 1 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player1Primary1Name', this.value)">
+                <div class="card text-white bg-dark mt-2">
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 1 Primary</label>
+                        <div class="col-sm-4">
+                            <select id="primary1NamePlayer1" class="form-control unit-select" onclick="emitUnitUpdate('player1Primary1Name', this.value)">
                                 <option>Ahsoka-Tano-Jedi-No-More</option>
                                 <option>Asajj-Ventress-Sith-Assassin</option>
                                 <option>Cad-Bane-Notorious-Hunter</option>
@@ -88,13 +90,30 @@
                                 <option>Queen-Padme-Amidala</option>
                                 <option>The-Mandalorian</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary1Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary1Wounds', this.value)" >
-                            <hr/>
-                            <br>
-                            <label>Squad 1 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player1Secondary1Name', this.value)">
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('primary1NamePlayer1').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('primary1NamePlayer1').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary1Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary1Wounds', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 1 Secondary</label>
+                        <div class="col-sm-4">
+                            <select id="Secondary1NamePlayer1" class="form-control unit-select" onclick="emitUnitUpdate('player1Secondary1Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
                                 <option>Bo-Katan-Kryze</option>
@@ -122,13 +141,30 @@
                                 <option>Wicket-Intrepid-Warrior</option>
                                 <option>Wrecker-And-Omega</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary1Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary1Wounds', this.value)" >
-                            <hr/>                            
-                            <br>
-                            <label>Squad 1 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player1Support1Name', this.value)">
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Secondary1NamePlayer1').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Secondary1NamePlayer1').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary1Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary1Wounds', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 1 Support</label>
+                        <div class="col-sm-4">
+                            <select id="Support1NamePlayer1" class="form-control unit-select" onclick="emitUnitUpdate('player1Support1Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
                                 <option>501st-Clone-Troopers</option>
@@ -153,123 +189,188 @@
                                 <option>Stormtroopers</option>
                                 <option>Weequay-Pirates</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support1Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support1Wounds', this.value)" >
-                            <hr/>
-                            <br>
-                            <label>Squad 2 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player1Primary2Name', this.value)">
-                                <option>Ahsoka-Tano-Jedi-No-More</option>
-                                <option>Asajj-Ventress-Sith-Assassin</option>
-                                <option>Cad-Bane-Notorious-Hunter</option>
-                                <option>Chief-Chirpa</option>
-                                <option>Clone-Sergeant-Hunter</option>
-                                <option>Count-Dooku-Separatist-Leader</option>
-                                <option>Darth-Vader-Jedi-Hunter</option>
-                                <option>Darth-Vader-The-Emperors-Servant</option>
-                                <option>General-Anakin-Skywalker</option>
-                                <option>General-Grievous</option>
-                                <option>General-Obi-Wan-Kenobi</option>
-                                <option>Grand-Inquisitor-Fallen-Jedi</option>
-                                <option>Hondo-Honest-Businessman</option>
-                                <option>Jedi-Knight-Luke-Skywalker</option>
-                                <option>Jedi-Master-Luminara-Unduli</option>
-                                <option>Jedi-Master-Mace-Windu</option>
-                                <option>Jedi-Master-Plo-Koon</option>
-                                <option>Leia-Organa-Freedom-Fighter</option>
-                                <option>Logray-Bright-Tree-Shaman</option>
-                                <option>Lord-Maul</option>
-                                <option>Moff-Gideon</option>
-                                <option>Mother-Talzin</option>
-                                <option>Queen-Padme-Amidala</option>
-                                <option>The-Mandalorian</option>
-                            </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary2Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary2Wounds', this.value)" >
-                            <hr/>                               
-                            <br>
-                            <label>Squad 2 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player1Secondary2Name', this.value)">
-                                <option>Aurra-Sing</option>
-                                <option>Barriss-Offee-Jedi-Padawan</option>
-                                <option>Bo-Katan-Kryze</option>
-                                <option>Boushh-Leia-Organa</option>
-                                <option>C-3po-And-R2-D2</option>
-                                <option>Cc-2224-Clone-Commander-Cody</option>
-                                <option>Cc-3636-Commander-Wolffe</option>
-                                <option>Cc-7567-Captain-Rex</option>
-                                <option>Crosshair</option>
-                                <option>Ct-411-Commander-Ponds</option>
-                                <option>Death-Trooper-Escort</option>
-                                <option>Gar-Saxon-Merciless-Commander</option>
-                                <option>Greef-Karga</option>
-                                <option>Gwarm</option>
-                                <option>Jango-Fett-Bounty-Hunter</option>
-                                <option>Kalani-Super-Tactical-Droid</option>
-                                <option>Kraken-Super-Tactical-Droid</option>
-                                <option>Obi-Wan-Kenobi-Out-Of-Hiding</option>
-                                <option>Padawan-Ahsoka-Tano</option>
-                                <option>Paploo-Curious-Creature</option>
-                                <option>Sabe-Royal-Bodyguard</option>
-                                <option>Savage-Opress</option>
-                                <option>Stormtrooper-Sergeant</option>
-                                <option>Third-Sister</option>
-                                <option>Wicket-Intrepid-Warrior</option>
-                                <option>Wrecker-And-Omega</option>
-                            </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary2Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary2Wounds', this.value)" >
-                            <hr/>                              
-                            <br>
-                            <label>Squad 2 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player1Support2Name', this.value)">
-                                <option>104th-Wolfpack-Troopers</option>
-                                <option>212th-Clone-Troopers</option>
-                                <option>501st-Clone-Troopers</option>
-                                <option>Arf-Clone-Troopers</option>
-                                <option>B1-Battle-Droids</option>
-                                <option>B2-Battle-Droids</option>
-                                <option>Bounty-Hunters</option>
-                                <option>Clan-Kryze-Mandalorians</option>
-                                <option>Dark-Troopers</option>
-                                <option>Echo-And-Tech</option>
-                                <option>Ewok-Hunters</option>
-                                <option>Ewok-Trappers</option>
-                                <option>Fifth-Brother</option>
-                                <option>Fourth-Sister</option>
-                                <option>Ig-11-Assassin-Droid</option>
-                                <option>Lando-And-R2-D2-Inside-Job</option>
-                                <option>Magnaguard</option>
-                                <option>Mandalorian-Super-Commandos</option>
-                                <option>Naboo-Royal-Handmaidens</option>
-                                <option>Nightsister-Acolytes</option>
-                                <option>Republic-Clone-Commandos</option>
-                                <option>Stormtroopers</option>
-                                <option>Weequay-Pirates</option>
-                            </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support2Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support2Wounds', this.value)" >
-                            <hr/>                            
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Support1NamePlayer1').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Support1NamePlayer1').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support1Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support1Wounds', this.value)">
                         </div>
                     </div>
                 </div>
+                
+                <div class="card text-white bg-dark mt-2">
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 2 Primary</label>
+                        <div class="col-sm-4">
+                            <select id="Primary2NamePlayer1" class="form-control unit-select" onclick="emitUnitUpdate('player1Primary2Name', this.value)">
+                                <option>Ahsoka-Tano-Jedi-No-More</option>
+                                <option>Asajj-Ventress-Sith-Assassin</option>
+                                <option>Cad-Bane-Notorious-Hunter</option>
+                                <option>Chief-Chirpa</option>
+                                <option>Clone-Sergeant-Hunter</option>
+                                <option>Count-Dooku-Separatist-Leader</option>
+                                <option>Darth-Vader-Jedi-Hunter</option>
+                                <option>Darth-Vader-The-Emperors-Servant</option>
+                                <option>General-Anakin-Skywalker</option>
+                                <option>General-Grievous</option>
+                                <option>General-Obi-Wan-Kenobi</option>
+                                <option>Grand-Inquisitor-Fallen-Jedi</option>
+                                <option>Hondo-Honest-Businessman</option>
+                                <option>Jedi-Knight-Luke-Skywalker</option>
+                                <option>Jedi-Master-Luminara-Unduli</option>
+                                <option>Jedi-Master-Mace-Windu</option>
+                                <option>Jedi-Master-Plo-Koon</option>
+                                <option>Leia-Organa-Freedom-Fighter</option>
+                                <option>Logray-Bright-Tree-Shaman</option>
+                                <option>Lord-Maul</option>
+                                <option>Moff-Gideon</option>
+                                <option>Mother-Talzin</option>
+                                <option>Queen-Padme-Amidala</option>
+                                <option>The-Mandalorian</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Primary2NamePlayer1').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Primary2NamePlayer1').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary2Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Primary2Wounds', this.value)">
+                        </div>
+                    </div>
 
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 2 Secondary</label>
+                        <div class="col-sm-4">
+                            <select id="Secondary2NamePlayer1" class="form-control unit-select" onclick="emitUnitUpdate('player1Secondary2Name', this.value)">
+                                <option>Aurra-Sing</option>
+                                <option>Barriss-Offee-Jedi-Padawan</option>
+                                <option>Bo-Katan-Kryze</option>
+                                <option>Boushh-Leia-Organa</option>
+                                <option>C-3po-And-R2-D2</option>
+                                <option>Cc-2224-Clone-Commander-Cody</option>
+                                <option>Cc-3636-Commander-Wolffe</option>
+                                <option>Cc-7567-Captain-Rex</option>
+                                <option>Crosshair</option>
+                                <option>Ct-411-Commander-Ponds</option>
+                                <option>Death-Trooper-Escort</option>
+                                <option>Gar-Saxon-Merciless-Commander</option>
+                                <option>Greef-Karga</option>
+                                <option>Gwarm</option>
+                                <option>Jango-Fett-Bounty-Hunter</option>
+                                <option>Kalani-Super-Tactical-Droid</option>
+                                <option>Kraken-Super-Tactical-Droid</option>
+                                <option>Obi-Wan-Kenobi-Out-Of-Hiding</option>
+                                <option>Padawan-Ahsoka-Tano</option>
+                                <option>Paploo-Curious-Creature</option>
+                                <option>Sabe-Royal-Bodyguard</option>
+                                <option>Savage-Opress</option>
+                                <option>Stormtrooper-Sergeant</option>
+                                <option>Third-Sister</option>
+                                <option>Wicket-Intrepid-Warrior</option>
+                                <option>Wrecker-And-Omega</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Secondary2NamePlayer1').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Secondary2NamePlayer1').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary2Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Secondary2Wounds', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 2 Support</label>
+                        <div class="col-sm-4">
+                            <select id="Support2NamePlayer1" class="form-control unit-select" onclick="emitUnitUpdate('player1Support2Name', this.value)">
+                                <option>104th-Wolfpack-Troopers</option>
+                                <option>212th-Clone-Troopers</option>
+                                <option>501st-Clone-Troopers</option>
+                                <option>Arf-Clone-Troopers</option>
+                                <option>B1-Battle-Droids</option>
+                                <option>B2-Battle-Droids</option>
+                                <option>Bounty-Hunters</option>
+                                <option>Clan-Kryze-Mandalorians</option>
+                                <option>Dark-Troopers</option>
+                                <option>Echo-And-Tech</option>
+                                <option>Ewok-Hunters</option>
+                                <option>Ewok-Trappers</option>
+                                <option>Fifth-Brother</option>
+                                <option>Fourth-Sister</option>
+                                <option>Ig-11-Assassin-Droid</option>
+                                <option>Lando-And-R2-D2-Inside-Job</option>
+                                <option>Magnaguard</option>
+                                <option>Mandalorian-Super-Commandos</option>
+                                <option>Naboo-Royal-Handmaidens</option>
+                                <option>Nightsister-Acolytes</option>
+                                <option>Republic-Clone-Commandos</option>
+                                <option>Stormtroopers</option>
+                                <option>Weequay-Pirates</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Support2NamePlayer1').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Support2NamePlayer1').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support2Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player1Support2Wounds', this.value)">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-6">
                 <div class="card text-white bg-dark mt-2">
-                    <div class="card-body row">
+                    <div class="card-body row pb-0">
                         <label class="col-sm-4 col-form-label col-form-label-lg">Player 2 Name</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control form-control-lg" placeholder="Enter Player 2 name"
                                 onchange="emitUpdateElementInnerHTML('playerName2', this.value)">
                         </div>
                     </div>
-                    <div class="card-body row ">
+                    <div class="card-body row pb-0">
                         <label class="col-sm-4 col-form-label col-form-label-lg">Strike Team Name</label>
                         <div class="col-sm-7">
                             <input type="text" class="form-control form-control-lg" placeholder="Enter Player 2 strike team name"
@@ -285,19 +386,7 @@
                     </div>
                 </div>
 
-
-
-
-
                 <div class="card text-white bg-dark mt-2">
-
-
-
-
-
-
-
-                    
                     <div class="card-body row pb-2">
                         <label class="col-sm-4 col-form-label">Squad 1 Primary</label>
                         <div class="col-sm-4">
@@ -347,25 +436,10 @@
                         </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div>
-                    
-                            <br>
-                            <label>Squad 1 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player2Secondary1Name', this.value)">
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 1 Secondary</label>
+                        <div class="col-sm-4">
+                            <select id="Secondary1NamePlayer2" class="form-control unit-select" onclick="emitUnitUpdate('player2Secondary1Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
                                 <option>Bo-Katan-Kryze</option>
@@ -393,13 +467,30 @@
                                 <option>Wicket-Intrepid-Warrior</option>
                                 <option>Wrecker-And-Omega</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary1Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary1Wounds', this.value)" >
-                            <hr/>                               
-                            <br>
-                            <label>Squad 1 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player2Support1Name', this.value)">
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Secondary1NamePlayer2').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Secondary1NamePlayer2').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary1Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary1Wounds', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 1 Support</label>
+                        <div class="col-sm-4">
+                            <select id="Support1NamePlayer2" class="form-control unit-select" onclick="emitUnitUpdate('player2Support1Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
                                 <option>501st-Clone-Troopers</option>
@@ -424,13 +515,32 @@
                                 <option>Stormtroopers</option>
                                 <option>Weequay-Pirates</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support1Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support1Wounds', this.value)" >
-                            <hr/>                                 
-                            <br>
-                            <label>Squad 2 Primary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player2Primary2Name', this.value)">
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Support1NamePlayer2').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Support1NamePlayer2').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support1Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support1Wounds', this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-dark mt-2">
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 2 Primary</label>
+                        <div class="col-sm-4">
+                            <select id="Primary2NamePlayer2" class="form-control unit-select" onclick="emitUnitUpdate('player2Primary2Name', this.value)">
                                 <option>Ahsoka-Tano-Jedi-No-More</option>
                                 <option>Asajj-Ventress-Sith-Assassin</option>
                                 <option>Cad-Bane-Notorious-Hunter</option>
@@ -456,13 +566,30 @@
                                 <option>Queen-Padme-Amidala</option>
                                 <option>The-Mandalorian</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary2Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary2Wounds', this.value)" >
-                            <hr/>                            
-                            <br>
-                            <label>Squad 2 Secondary Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player2Secondary2Name', this.value)">
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Primary2NamePlayer2').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Primary2NamePlayer2').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary2Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Primary2Wounds', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 2 Secondary</label>
+                        <div class="col-sm-4">
+                            <select id="Secondary2NamePlayer2" class="form-control unit-select" onclick="emitUnitUpdate('player2Secondary2Name', this.value)">
                                 <option>Aurra-Sing</option>
                                 <option>Barriss-Offee-Jedi-Padawan</option>
                                 <option>Bo-Katan-Kryze</option>
@@ -490,13 +617,30 @@
                                 <option>Wicket-Intrepid-Warrior</option>
                                 <option>Wrecker-And-Omega</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary2Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary2Wounds', this.value)" >
-                            <hr/>                               
-                            <br>
-                            <label>Squad 2 Support Unit</label><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitCardToShow(this.nextSibling.nextSibling.nextSibling.value)">Show Card</a><a class="btn btn-primary btn-sm toggle-card-button float-right" onclick="emitStanceCardToShow(this.nextSibling.nextSibling.value)">Show Stance</a>
-                            <select class="form-control unit-select" onclick="emitUnitUpdate('player2Support2Name', this.value)">
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Secondary2NamePlayer2').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Secondary2NamePlayer2').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary2Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Secondary2Wounds', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="card-body row pb-2">
+                        <label class="col-sm-4 col-form-label">Squad 2 Support</label>
+                        <div class="col-sm-4">
+                            <select id="Support2NamePlayer2" class="form-control unit-select" onclick="emitUnitUpdate('player2Support2Name', this.value)">
                                 <option>104th-Wolfpack-Troopers</option>
                                 <option>212th-Clone-Troopers</option>
                                 <option>501st-Clone-Troopers</option>
@@ -521,13 +665,32 @@
                                 <option>Stormtroopers</option>
                                 <option>Weequay-Pirates</option>
                             </select>
-                            <br>
-                            <label class="col-form-label-sm">Damage:</label><input class="form-control form-control-sm damage-wounds-input damage-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support2Damage', this.value)">
-                            <label class="col-form-label-sm">Wounds:</label><input class="form-control form-control-sm damage-wounds-input wounds-input" type="number" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support2Wounds', this.value)" >
-                            <hr/>                                 
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitCardToShow(document.getElementById('Support2NamePlayer2').value)">Show Card</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-primary" onclick="emitStanceCardToShow(document.getElementById('Support2NamePlayer2').value)">Show Stance</a>
+                        </div>
+                    </div>
+                    <div class="card-body row pt-0">
+                        <div class="col-sm-4"></div>
+                        <label class="col-sm-2 col-form-label text-right">Damage:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center damage-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support2Damage', this.value)">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-right">Injuries:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control text-center wounds-input" value="0" onchange="emitUnitDamageWoundsUpdate('player2Support2Wounds', this.value)">
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
             </div>
         </div>
     </div>
