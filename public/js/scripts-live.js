@@ -50,31 +50,18 @@ socket.on('update', function (update) {
             $('#cardImageModal').modal('show');
         } else if (targetElementId.startsWith("showStanceUpdate")) {
             var imgSrcURL = getStanceImageForUnitName(update[1]);
-
-            /*
+            
             // Check if the image already matches!
-            if (cardImgElement.src == imgSrcURL) {
+            if (imgSrcURL.includes(";")) {
+                var imgSrcURL1 = imgSrcURL.split(";")[0];
+                var imgSrcURL2 = imgSrcURL.split(";")[1];
 
-                if (imgSrcURL.includes("stance-one")) {
-                    imgSrcURL = imgSrcURL.replace("stance-one", "stance-two");
-                } else if (imgSrcURL.includes("stance-two")) {
-                    imgSrcURL = imgSrcURL.replace("stance-two", "stance-one");
-                } else if (imgSrcURL.includes("stance-1")) {
-                    imgSrcURL = imgSrcURL.replace("stance-1", "stance-2");
-                } else if (imgSrcURL.includes("stance-2")) {
-                    imgSrcURL = imgSrcURL.replace("stance-2", "stance-1");
-                } else if (imgSrcURL.includes("stance1")) {
-                    imgSrcURL = imgSrcURL.replace("stance1", "stance2");
-                } else if (imgSrcURL.includes("stance2")) {
-                    imgSrcURL = imgSrcURL.replace("stance2", "stance1");
-                } else if (imgSrcURL.includes("stanceone")) {
-                    imgSrcURL = imgSrcURL.replace("stanceone", "stancetwo");
-                } else if (imgSrcURL.includes("stancetwo")) {
-                    imgSrcURL = imgSrcURL.replace("stancetwo", "stanceone");
+                if (cardImgElement.src != imgSrcURL1) {
+                    imgSrcURL = imgSrcURL1;
+                } else if (cardImgElement.src != imgSrcURL2) {
+                    imgSrcURL = imgSrcURL2;
                 }
-
             }
-            */
 
             cardImgElement.src = imgSrcURL;
             $('#cardImageModal').modal('show');
@@ -85,32 +72,32 @@ socket.on('update', function (update) {
 function getStanceImageForUnitName(unitNamewithDashes) {
     console.log("Matching on", unitNamewithDashes);
     switch (unitNamewithDashes) {
-        case "Ahsoka-Tano-Jedi-No-More": return "https://shatterpointdb.com/media/lbfpcqyb/swp01_ahsoka_stance_article-2.png";
-        case "Asajj-Ventress-Sith-Assassin": return "https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png";
-        case "Cad-Bane-Notorious-Hunter": return "https://shatterpointdb.com/media/do3cryei/shatterpoint-cad-bane-stance-one.png";
-        case "Chief-Chirpa": return "https://shatterpointdb.com/media/1bhffout/shatterpoint-chief-chirpa-stance-two-card.png";
-        case "Clone-Sergeant-Hunter": return "https://shatterpointdb.com/media/vexhz0xa/shatterpoint-clone-sergeant-hunter-stance-two-card.png";
-        case "Commander-Iden-Versio": return "https://shatterpointdb.com/media/4g5jvurr/shatterpoint-commander-iden-versio-stance-two-card.png";
-        case "Count-Dooku-Separatist-Leader": return "https://shatterpointdb.com/media/zuhjk3xz/star-wars-shatterpoint-count-dooku-stance-1-card.png";
-        case "Darth-Vader-Jedi-Hunter": return "https://shatterpointdb.com/media/ccpjyoza/star-wars-shatterpoint-darth-vader-jedi-hunter-stance-two-card.png";
-        case "Darth-Vader-The-Emperors-Servant": return "https://shatterpointdb.com/media/gfvfqbx3/darth-vader-emperors-servant-stance-two-card.png";
-        case "General-Anakin-Skywalker": return "https://shatterpointdb.com/media/zf4bstny/starwarsshatterpointanakinskywalkerstanceone.png";
-        case "General-Grievous": return "https://shatterpointdb.com/media/l2npxem1/star-wars-shatterpoint-grievous-stance-one-card.png";
-        case "General-Obi-Wan-Kenobi": return "https://shatterpointdb.com/media/ymslavex/star-wars-obi-wan-kenobi-unit-stance-1-1.png";
-        case "General-Solo": return "https://shatterpointdb.com/media/xszbrx4l/shatterpoint-general-solo-stance-one-card.png";
-        case "Grand-Inquisitor-Fallen-Jedi": return "https://shatterpointdb.com/media/slqkhvld/star-wars-shatterpoint-grand-inquisitor-stance-one-card.png";
-        case "Hondo-Honest-Businessman": return "https://shatterpointdb.com/media/uz5pftxm/shatterpoint-hondu-honest-businessman-stance-one-card.png";
-        case "Jedi-Knight-Luke-Skywalker": return "https://shatterpointdb.com/media/ezdjrxi2/jedi-knight-luke-skywalker-stance-one.png";
-        case "Jedi-Master-Luminara-Unduli": return "https://shatterpointdb.com/media/w2uctnd2/star-wars-shatterpoint-jedi-master-luminara-stance-one-card.png";
-        case "Jedi-Master-Mace-Windu": return "https://shatterpointdb.com/media/ho1k44sh/star-wars-shatterpoint-mace-windu-stance-two-card.png";
-        case "Jedi-Master-Plo-Koon": return "https://shatterpointdb.com/media/wt2p3xy1/shatterpoint-jedi-master-plo-koon-stance-one-card.png";
-        case "Leia-Organa-Freedom-Fighter": return "https://shatterpointdb.com/media/bcult5yp/shatterpoint-leia-organa-freedom-fighter-stance-2-card.png";
-        case "Logray-Bright-Tree-Shaman": return "https://shatterpointdb.com/media/s20hy2br/shatterpoint-logray-bright-tree-shaman-stance-2-card.png";
-        case "Lord-Maul": return "https://shatterpointdb.com/media/kkgn3wv2/maulstance1.png";
-        case "Moff-Gideon": return "https://shatterpointdb.com/media/1ilflaom/shatterpoint-moff-gideon-stance-2-card.png";
-        case "Mother-Talzin": return "https://shatterpointdb.com/media/dgflaniy/star-wars-shatterpoint-mother-talzin-stance-two-card.png";
-        case "Queen-Padme-Amidala": return "https://shatterpointdb.com/media/0lvnicoy/shatterpoint-padme-amidala-stance-onecard.png";
-        case "The-Mandalorian": return "https://shatterpointdb.com/media/sccjzr5v/shatterpoint-the-mandalorian-stance-card.png";
+        case "Ahsoka-Tano-Jedi-No-More": return "https://shatterpointdb.com/media/mwkpmor3/swp01_ahsoka_stance_article-1.png;https://shatterpointdb.com/media/lbfpcqyb/swp01_ahsoka_stance_article-2.png";
+        case "Asajj-Ventress-Sith-Assassin": return "https://shatterpointdb.com/media/4f3chjdq/star-wars-shatterpoint-asajj-ventress-stance-one.png;https://shatterpointdb.com/media/unhltw4d/star-wars-shatterpoint-asajj-ventress-stance-two.png";
+        case "Cad-Bane-Notorious-Hunter": return "https://shatterpointdb.com/media/do3cryei/shatterpoint-cad-bane-stance-one.png;https://shatterpointdb.com/media/gashapmy/shatterpoint-cad-bane-stance-two.png";
+        case "Chief-Chirpa": return "https://shatterpointdb.com/media/l2oggsmk/shatterpoint-chief-chirpa-stance-one-card.png;https://shatterpointdb.com/media/1bhffout/shatterpoint-chief-chirpa-stance-two-card.png";
+        case "Clone-Sergeant-Hunter": return "https://shatterpointdb.com/media/qyddswnj/shatterpoint-clone-sergeant-hunter-stance-one-card.png;https://shatterpointdb.com/media/vexhz0xa/shatterpoint-clone-sergeant-hunter-stance-two-card.png";
+        case "Commander-Iden-Versio": return "https://shatterpointdb.com/media/avep2nsc/shatterpoint-commander-iden-versio-stance-one-card.png;https://shatterpointdb.com/media/4g5jvurr/shatterpoint-commander-iden-versio-stance-two-card.png";
+        case "Count-Dooku-Separatist-Leader": return "https://shatterpointdb.com/media/zuhjk3xz/star-wars-shatterpoint-count-dooku-stance-1-card.png;https://shatterpointdb.com/media/lqbpnsk0/star-wars-shatterpoint-count-dooku-stance-2card.png";
+        case "Darth-Vader-Jedi-Hunter": return "https://shatterpointdb.com/media/fmgjtz5f/star-wars-shatterpoint-darth-vader-jedi-hunter-stance-card.png;https://shatterpointdb.com/media/ccpjyoza/star-wars-shatterpoint-darth-vader-jedi-hunter-stance-two-card.png";
+        case "Darth-Vader-The-Emperors-Servant": return "https://shatterpointdb.com/media/gewbys5a/darth-vader-emperors-servant-stance-one-card.png;https://shatterpointdb.com/media/gfvfqbx3/darth-vader-emperors-servant-stance-two-card.png";
+        case "General-Anakin-Skywalker": return "https://shatterpointdb.com/media/zf4bstny/starwarsshatterpointanakinskywalkerstanceone.png;https://shatterpointdb.com/media/htydlen3/starwarsshatterpointanakinskywalkerstancetwo.png";
+        case "General-Grievous": return "https://shatterpointdb.com/media/l2npxem1/star-wars-shatterpoint-grievous-stance-one-card.png;https://shatterpointdb.com/media/aifflby1/star-wars-shatterpoint-grievous-stance-two-card.png";
+        case "General-Obi-Wan-Kenobi": return "https://shatterpointdb.com/media/ymslavex/star-wars-obi-wan-kenobi-unit-stance-1-1.png;https://shatterpointdb.com/media/fmuda4yq/star-wars-obi-wan-kenobi-unit-stance-2-1.png";
+        case "General-Solo": return "https://shatterpointdb.com/media/xszbrx4l/shatterpoint-general-solo-stance-one-card.png;https://shatterpointdb.com/media/tcqhj14m/shatterpoint-general-solo-stance-two-card.png";
+        case "Grand-Inquisitor-Fallen-Jedi": return "https://shatterpointdb.com/media/slqkhvld/star-wars-shatterpoint-grand-inquisitor-stance-one-card.png;https://shatterpointdb.com/media/yznbdtmy/star-wars-shatterpoint-grand-inquisitor-stance-two-card.png";
+        case "Hondo-Honest-Businessman": return "https://shatterpointdb.com/media/uz5pftxm/shatterpoint-hondu-honest-businessman-stance-one-card.png;https://shatterpointdb.com/media/2b5oobqm/shatterpoint-hondu-honest-businessman-stance-two-card.png";
+        case "Jedi-Knight-Luke-Skywalker": return "https://shatterpointdb.com/media/ezdjrxi2/jedi-knight-luke-skywalker-stance-one.png;https://shatterpointdb.com/media/tjsflnmv/jedi-knight-luke-skywalker-stance-two.png";
+        case "Jedi-Master-Luminara-Unduli": return "https://shatterpointdb.com/media/w2uctnd2/star-wars-shatterpoint-jedi-master-luminara-stance-one-card.png;https://shatterpointdb.com/media/givmggvd/star-wars-shatterpoint-jedi-master-luminara-stance-two-card.png";
+        case "Jedi-Master-Mace-Windu": return "https://shatterpointdb.com/media/5jnbib52/star-wars-shatterpoint-mace-windu-stance-one-card.png;https://shatterpointdb.com/media/ho1k44sh/star-wars-shatterpoint-mace-windu-stance-two-card.png";
+        case "Jedi-Master-Plo-Koon": return "https://shatterpointdb.com/media/wt2p3xy1/shatterpoint-jedi-master-plo-koon-stance-one-card.png;https://shatterpointdb.com/media/jaqemx3l/shatterpoint-jedi-master-plo-koon-stance-two-card.png";
+        case "Leia-Organa-Freedom-Fighter": return "https://shatterpointdb.com/media/j3meqs3w/shatterpoint-leia-organa-freedom-fighter-stance-1-card.png;https://shatterpointdb.com/media/bcult5yp/shatterpoint-leia-organa-freedom-fighter-stance-2-card.png";
+        case "Logray-Bright-Tree-Shaman": return "https://shatterpointdb.com/media/mfsn2rvt/shatterpoint-logray-bright-tree-shaman-stance-1card.png;https://shatterpointdb.com/media/s20hy2br/shatterpoint-logray-bright-tree-shaman-stance-2-card.png";
+        case "Lord-Maul": return "https://shatterpointdb.com/media/kkgn3wv2/maulstance1.png;https://shatterpointdb.com/media/3jxhjwvb/maulstance2.png";
+        case "Moff-Gideon": return "https://shatterpointdb.com/media/uzokaxmd/shatterpoint-moff-gideon-stance-1-card.png;https://shatterpointdb.com/media/1ilflaom/shatterpoint-moff-gideon-stance-2-card.png";
+        case "Mother-Talzin": return "https://shatterpointdb.com/media/1emnofyf/star-wars-shatterpoint-mother-talzin-stance-one-card.png;https://shatterpointdb.com/media/dgflaniy/star-wars-shatterpoint-mother-talzin-stance-two-card.png";
+        case "Queen-Padme-Amidala": return "https://shatterpointdb.com/media/0lvnicoy/shatterpoint-padme-amidala-stance-onecard.png;https://shatterpointdb.com/media/cv0k4bme/shatterpoint-padme-amidala-stance-two-card.png";
+        case "The-Mandalorian": return "https://shatterpointdb.com/media/sccjzr5v/shatterpoint-the-mandalorian-stance-card.png;https://shatterpointdb.com/media/3fshpxpj/shatterpoint-the-mandalorian-stance-two-card.png";
         // Secondary
         case "Aurra-Sing": return "https://shatterpointdb.com/media/tocpwu0j/starwarsshatterpointaurrasingstance.png";
         case "Barriss-Offee-Jedi-Padawan": return "https://shatterpointdb.com/media/hsqov0al/star-wars-shatterpoint-barriss-offee-stance-card.png";
@@ -139,7 +126,7 @@ function getStanceImageForUnitName(unitNamewithDashes) {
         case "Stormtrooper-Sergeant": return "https://shatterpointdb.com/media/ir5joe3o/shatterpoint-stormtrooper-sergeant-stance.png";
         case "Third-Sister": return "https://shatterpointdb.com/media/t2phqcpp/star-wars-shatterpoint-third-sister-stance-card.png";
         case "Wicket-Intrepid-Warrior": return "https://shatterpointdb.com/media/033jc0gw/shatterpoint-wicket-intrepid-stance-card.png";
-        case "Wrecker-And-Omega": return "https://shatterpointdb.com/media/1lzc5ult/shatterpoint-wrecker-and-omega-stance-two-card.png";
+        case "Wrecker-And-Omega": return "https://shatterpointdb.com/media/1lzc5ult/shatterpoint-wrecker-and-omega-stance-two-card.png;https://shatterpointdb.com/media/ymtceyfd/shatterpoint-wrecker-and-omega-stance-one-card.png";
         // Support
         case "104th-Wolfpack-Troopers": return "https://shatterpointdb.com/media/4bjpbhu3/shatterpoint-104th-wolfpack-trooper-stance-card.png";
         case "212th-Clone-Troopers": return "https://shatterpointdb.com/media/5i4baw4u/star-wars-shatterpoint-212th-stance-card.png";
