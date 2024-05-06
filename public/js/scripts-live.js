@@ -7,14 +7,13 @@ socket.on('update', function (update) {
 
     var command = update[0];
     
-    // Struggle tracker
-    if (command == "toggleStruggleTrackerElement") {
+    if (command == "ToggleObjectivesImg") {
+        $('#objectivesModal').modal('toggle');
+    } else if (command == "toggleStruggleTrackerElement") {
         var targetElementId = update[1];
         var newBackgroundColor = update[2];
         document.getElementById(targetElementId).style.backgroundColor = newBackgroundColor;
-    }
-
-    if (command == "updateElementInnerHTML") {
+    } else if (command == "updateElementInnerHTML") {
         console.log("Updating element inner HTML:");
         document.getElementById(update[1]).innerHTML = update[2];
     } else if (command=="HideCurrentlyShownCard") {

@@ -50,3 +50,7 @@ function toggleStruggleTrackerElement(clickedElement) {
     socket.emit('update', ["toggleStruggleTrackerElement", clickedElement.id, newBackgroundColor])
 }
 
+
+function emitToggleObjectivesImg() {
+    socket.emit('update', ["ToggleObjectivesImg", 0, ""]);
+}
