@@ -36,3 +36,17 @@ function emitHideCurrentlyDisplayedCard() {
 socket.on('update', function (update) {
     console.log('Socket update received from settings page: ', update);
 });
+
+
+
+function toggleStruggleTrackerElement(clickedElement) {
+    newBackgroundColor = "white";
+    if (clickedElement.style.backgroundColor == "white" || !clickedElement.style.backgroundColor) {
+        newBackgroundColor =  "gray";
+    } else if (clickedElement.style.backgroundColor == "gray") {
+        newBackgroundColor =  "yellow";
+    }
+    clickedElement.style.backgroundColor = newBackgroundColor;
+    socket.emit('update', ["toggleStruggleTrackerElement", clickedElement.id, newBackgroundColor])
+}
+

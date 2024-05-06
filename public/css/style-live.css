@@ -120,5 +120,13 @@ body {
 }
 
 #logoImage {
-    width: 240px;
+    width: 130px;
+    margin-bottom: 7px;
+}
+
+.momentum-element {
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
 }

@@ -74,3 +74,10 @@
 #sourceCodeButton {
     margin-right: 20px;
 }
+
+.momentum-element {
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
+}

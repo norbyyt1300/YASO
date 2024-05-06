@@ -6,6 +6,13 @@ socket.on('update', function (update) {
     console.log('Socket update received from settings page: ', update);
 
     var command = update[0];
+    
+    // Struggle tracker
+    if (command == "toggleStruggleTrackerElement") {
+        var targetElementId = update[1];
+        var newBackgroundColor = update[2];
+        document.getElementById(targetElementId).style.backgroundColor = newBackgroundColor;
+    }
 
     if (command == "updateElementInnerHTML") {
         console.log("Updating element inner HTML:");

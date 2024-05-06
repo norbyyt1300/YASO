@@ -25,36 +25,63 @@
     <nav class="navbar navbar-dark top-navbar bg-dark">
         <a class="navbar-brand" href="#">YASO Overlay Settings Page</a>
         <button type="button" class="btn btn-danger" onclick="emitHideCurrentlyDisplayedCard()">Hide Current Card</button>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-sm-0">
             <a id="sourceCodeButton" class="btn my-2 my-sm-0 bg-light me-2" type="submit" target="_blanK"
                 href="https://github.com/norbyyt1300/YASO">View Project Source Code</a>
             <a class="btn btn-outline-success my-2 my-sm-0 bg-light" type="submit" target="_blanK"
                 href="http://localhost:3000/live">View Live</a>
         </form>
     </nav>
+
+    <!-- Struggle Tracker -->
+    <nav class="navbar navbar-light top-navbar bg-light justify-content-center">
+        <form class="form-inline my-2 my-sm-0">
+            <label>Player 1</label>
+            <a id="momentum8player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">8</a>
+            <a id="momentum7player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">7</a>
+            <a id="momentum6player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">6</a>
+            <a id="momentum5player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">5</a>
+            <a id="momentum4player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">4</a>
+            <a id="momentum3player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">3</a>
+            <a id="momentum2player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">2</a>
+            <a id="momentum1player1" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">1</a>
+            <a id="momentum0" class="btn btn-sm border-warning momentum-element" onclick="toggleStruggleTrackerElement(this)">0</a>
+            <a id="momentum1player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">1</a>
+            <a id="momentum2player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">2</a>
+            <a id="momentum3player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">3</a>
+            <a id="momentum4player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">4</a>
+            <a id="momentum5player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">5</a>
+            <a id="momentum6player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">6</a>
+            <a id="momentum7player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">7</a>
+            <a id="momentum8player2" class="btn btn-sm border-secondary momentum-element" onclick="toggleStruggleTrackerElement(this)">8</a>
+            <label>Player 2</label>
+        </form>
+    </nav>
+
+    <!-- Cards -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
 
                 <div class="card text-white bg-dark mt-2">
                     <div class="card-body row pb-0">
-                        <label class="col-sm-4 col-form-label col-form-label-lg">Player 1 Name</label>
+                        <label class="col-sm-4 col-form-label col-form-label-sm">Player 1 Name</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 1 name"
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter Player 1 name"
                                 onchange="emitUpdateElementInnerHTML('playerName1', this.value)">
                         </div>
                     </div>
                     <div class="card-body row pb-0">
-                        <label class="col-sm-4 col-form-label col-form-label-lg">Strike Team Name</label>
+                        <label class="col-sm-4 col-form-label col-form-label-sm">Strike Team Name</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 1 strike team name"
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter Player 1 strike team name"
                                 onchange="emitUpdateElementInnerHTML('squadName1', this.value)">
                         </div>
                     </div>
                     <div class="card-body row">
-                        <label class="col-sm-4 col-form-label col-form-label-lg">Struggles Won</label>
+                        <label class="col-sm-4 col-form-label col-form-label-sm">Struggles Won</label>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control form-control-lg text-center" value="0"
+                            <input type="number" class="form-control form-control-sm text-center" value="0"
                                 onchange="emitUpdateElementInnerHTML('strugglesWon1', this.value)">
                         </div>
                     </div>
@@ -364,23 +391,23 @@
             <div class="col-md-6">
                 <div class="card text-white bg-dark mt-2">
                     <div class="card-body row pb-0">
-                        <label class="col-sm-4 col-form-label col-form-label-lg">Player 2 Name</label>
+                        <label class="col-sm-4 col-form-label col-form-label-sm">Player 2 Name</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 2 name"
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter Player 2 name"
                                 onchange="emitUpdateElementInnerHTML('playerName2', this.value)">
                         </div>
                     </div>
                     <div class="card-body row pb-0">
-                        <label class="col-sm-4 col-form-label col-form-label-lg">Strike Team Name</label>
+                        <label class="col-sm-4 col-form-label col-form-label-sm">Strike Team Name</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control form-control-lg" placeholder="Enter Player 2 strike team name"
+                            <input type="text" class="form-control form-control-sm" placeholder="Enter Player 2 strike team name"
                                 onchange="emitUpdateElementInnerHTML('squadName2', this.value)">
                         </div>
                     </div>
                     <div class="card-body row">
-                        <label class="col-sm-4 col-form-label col-form-label-lg">Struggles Won</label>
+                        <label class="col-sm-4 col-form-label col-form-label-sm">Struggles Won</label>
                         <div class="col-sm-4">
-                            <input type="number" class="form-control form-control-lg text-center" value="0"
+                            <input type="number" class="form-control form-control-sm text-center" value="0"
                                 onchange="emitUpdateElementInnerHTML('strugglesWon2', this.value)">
                         </div>
                     </div>
