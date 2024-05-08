@@ -130,3 +130,11 @@ body {
     margin-right: 5px;
     background-color: white;
 }
+
+.force-img {
+    filter: invert(100%) brightness(3);
+    height: 20px;
+    width: 20px;
+    padding-bottom: 5px;
+    object-fit: contain;
+}
